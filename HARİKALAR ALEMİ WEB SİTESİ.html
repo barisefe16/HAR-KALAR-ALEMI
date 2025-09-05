@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harikalar Alemi - BARIŞEFECOTUK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Genel Stil */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Başlık */
+        .header {
+            background: linear-gradient(135deg, #ff0000, #8b0000);
+            padding: 50px 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Bölüm Başlıkları */
+        .section-title {
+            font-size: 2.2em;
+            text-align: center;
+            margin: 40px 0 30px 0;
+            color: #ff6b6b;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #8b0000);
+            border-radius: 3px;
+        }
+        
+        /* Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .video-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(255, 0, 0, 0.25);
+        }
+        
+        .video-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(255, 0, 0, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .video-card:hover::after {
+            opacity: 1;
+        }
+        
+        .video-player {
+            width: 100%;
+            height: 200px;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .video-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 20px;
+            text-align: left;
+        }
+        
+        .video-info h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .video-description {
+            color: #ccc;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        
+        /* Shorts Bölümü */
+        .shorts-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shorts-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 0, 0, 0.05) 50%, transparent 100%);
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+        
+        .shorts-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            padding: 16px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shorts-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .shorts-button:hover::before {
+            left: 100%;
+        }
+        
+        .shorts-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+        }
+        
+        /* İletişim */
+        .contact {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff0000, #8b0000);
+        }
+        
+        .contact h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+        
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instagram-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .instagram-btn:hover::before {
+            left: 100%;
+        }
+        
+        .instagram-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            border-top: 1px solid #333;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '🌟';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            padding: 0 15px;
+            font-size: 1.5em;
+        }
+        
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .video-card {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .video-card:nth-child(1) { animation-delay: 0.1s; }
+        .video-card:nth-child(2) { animation-delay: 0.2s; }
+        .video-card:nth-child(3) { animation-delay: 0.3s; }
+        .video-card:nth-child(4) { animation-delay: 0.4s; }
+        .video-card:nth-child(5) { animation-delay: 0.5s; }
+        .video-card:nth-child(6) { animation-delay: 0.6s; }
+        .video-card:nth-child(7) { animation-delay: 0.7s; }
+        .video-card:nth-child(8) { animation-delay: 0.8s; }
+        .video-card:nth-child(9) { animation-delay: 0.9s; }
+        .video-card:nth-child(10) { animation-delay: 1.0s; }
+        .video-card:nth-child(11) { animation-delay: 1.1s; }
+        .video-card:nth-child(12) { animation-delay: 1.2s; }
+        .video-card:nth-child(13) { animation-delay: 1.3s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5em; }
+            .video-grid { grid-template-columns: 1fr; }
+            .contact, .shorts-section { padding: 25px; }
+            .section-title { font-size: 1.8em; }
+            .header { padding: 30px 15px; }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #ff0000;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cc0000;
+        }
+        
+        /* Yukarı çık butonu */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        
+        .scroll-top.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Başlık -->
+        <div class="header">
+            <h1>🌟 HARİKALAR ALEMİ 🌟</h1>
+            <p>BARIŞEFECOTUK YouTube Kanalı - Eğlence, Teknoloji, Doğa ve Hobi Dünyası</p>
+        </div>
+        
+        <!-- Ana Videolar -->
+        <h2 class="section-title">📹 VİDEOLAR</h2>
+        <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/anEepbZpr9I" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Arduino'da Buton ile Step Motor Kontrolü</h3>
+                    <p class="video-description">Arduino ile step motor nasıl kontrol edilir? Buton ile step motor kontrolü detaylı anlatım.</p>
+                </div>
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/HWClFhqHsx4" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Arduino Step Motor Kurulumu</h3>
+                    <p class="video-description">Arduino step motor bağlantıları ve temel kurulum nasıl yapılır? Tüm detaylar bu videoda.</p>
+                </div>
+            </div>
+            
+            <!-- Video 3 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/0t3TahIUtPo" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>LED'in Patrou Benim</h3>
+                    <p class="video-description">LED projelerinde dikkat edilmesi gerekenler ve eğlenceli LED uygulamaları.</p>
+                </div>
+            </div>
+            
+            <!-- Video 4 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/qR-1jRm6szQ" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Dağ Tırmanışı Bursa 2025</h3>
+                    <p class="video-description">Bursa'nın muhteşem dağlarında unutulmaz bir tırmanış deneyimi. Doğa ve macera dolu!</p>
+                </div>
+            </div>
+            
+            <!-- Video 5 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/xPMOm4o__XI" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>En Ekonomik Olta Takımları</h3>
+                    <p class="video-description">Ucuz ama kaliteli oltalar ve ekipmanlar. Balıkçılığa başlamak için en ekonomik seçenekler.</p>
+                </div>
+            </div>
+            
+            <!-- Video 6 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/db9xMqraP2w" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>En İyi Sazan Takımı Yapımı</h3>
+                    <p class="video-description">Sazan avında kullanılan en etkili takım nasıl yapılır? Pratik bilgiler ve ipuçları.</p>
+                </div>
+            </div>
+            
+            <!-- Video 7 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/hoAk-0YhW3Q" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Dağ Gezintisi/Kaybolduk</h3>
+                    <p class="video-description">Dağda yaptığımız gezinti sırasında başımıza gelen heyecan dolu kaybolma hikayesi.</p>
+                </div>
+            </div>
+            
+            <!-- Video 8 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/Kq4PkYeOtUA" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Kalama Nedir Nasıl Ayarlanır</h3>
+                    <p class="video-description">Olta makinesinde kalama ayarı nasıl yapılır? Doğru kalama ayarının püf noktaları.</p>
+                </div>
+            </div>
+            
+            <!-- Video 9 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/6B3Y7EGEhhc" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Bisiklet Sürme Dere Zehirlenmesi</h3>
+                    <p class="video-description">Bisiklet sürerken başımıza gelen ilginç dere zehirlenmesi olayı ve sonrası.</p>
+                </div>
+            </div>
+            
+            <!-- Video 10 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/lW1dzFZjUY4" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Turna Nasıl Tutulmaz</h3>
+                    <p class="video-description">Turna balığı avında yapılan hatalar ve turna nasıl tutulmaz? Komik anılarımız.</p>
+                </div>
+            </div>
+            
+            <!-- Video 11 -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/cYGVpSc5gnE" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Issız Yerlerde Gez</h3>
+                    <p class="video-description">Issız ve terkedilmiş yerlerde yaptığımız geziler ve karşılaştığımız sürprizler.</p>
+                </div>
+            </div>
+            
+            <!-- Video 12 - Köpekler Tehlike Yarattı videosu kaldırıldı -->
+            
+            <!-- Video 13 - Sazan Yayı Yapımı (Köpekler Tehlike Yarattı videosunun linki buraya taşındı) -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/JwiM_zIgqew" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Sazan Yayı Yapımı</h3>
+                    <p class="video-description">Sazan avı için yaylı zoka nasıl yapılır? Pratik sazan yayı yapımı detayları.</p>
+                </div>
+            </div>
+            
+            <!-- Video 14 - Son video (Şehir İçi Bisiklet Turu) -->
+            <div class="video-card">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/z_AYgbkhDhU" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Şehir İçi Bisiklet Turu - Salyanoz Kurtardık</h3>
+                    <p class="video-description">Şehir içinde keyifli bir bisiklet turu ve minik dostumuz Salyanoz'u kurtarma hikayemiz.</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Shorts Bölümü -->
+        <div class="shorts-section">
+            <h2 class="section-title">🎬 SHORTS VİDEOLAR</h2>
+            <p>Kısa ve eğlenceli videolarımıza göz atın!</p>
+            <a href="https://www.youtube.com/@BARIŞEFECOTUK/shorts" class="shorts-button" target="_blank">
+                <i class="fab fa-youtube"></i> Shorts İzle
+            </a>
+        </div>
+        
+        <!-- İletişim -->
+        <div class="contact">
+            <h2><i class="fas fa-envelope"></i> İletişim</h2>
+            <p>Benimle iletişime geçmek, işbirliği teklifleri veya sorularınız için Instagram'dan mesaj atabilirsiniz!</p>
+            <a href="https://instagram.com/barisefe_ctk" class="instagram-btn" target="_blank">
+                <i class="fab fa-instagram"></i> @barisefe_ctk
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Harikalar Alemi - BARIŞEFECOTUK YouTube Kanalı. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
+
+    <!-- Yukarı Çık Butonu -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Basit bir hover efekti için
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Yukarı çık butonu
+        const scrollTopButton = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopButton.classList.add('show');
+            } else {
+                scrollTopButton.classList.remove('show');
+            }
+        });
+        
+        scrollTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
